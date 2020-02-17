@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
 
-function State(props) {
 
-    const [count, setCount] = useState(3)
+
+function Counter(props) {
+
+    const [count, setCount] = useState(props.startCount);
 
     const countChangeMinusHandler = () => {
         setCount(count - 1);
         console.log('change -')
+        props.countChanges(count - 1);
     }
     const countChangePlusHandler = () => {
         setCount(count + 1);
         console.log('change +')
+        props.countChanges(count + 1);
     }
     return (
      <div>
@@ -22,4 +26,4 @@ function State(props) {
 
     );
 }
-export default State;
+export default Counter;
